@@ -4,6 +4,7 @@
   "version": "0.4.2",
   "type": "module",
   "scripts": {
+    "start": "yarn && yarn tunnel:ngrok",
     "dev": "vite",
     "build": "vite build",
     "build:preview": "vite build & vite preview",
