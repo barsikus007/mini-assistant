@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import {
-  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard,
+  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard, ActionSheetItem, ActionSheet,
 } from '@vkontakte/vkui';
-import { Icon16Add, Icon56NotebookCheckOutline } from '@vkontakte/icons';
+import { Icon28ShareOutline, Icon28ListPlayOutline, Icon28EditOutline, Icon16Add, Icon56NotebookCheckOutline } from '@vkontakte/icons';
 import '@vkontakte/vkui/dist/vkui.css';
 import Error from './panels/Error';
 import { GlobalContext, GetRoutes } from './context';
@@ -51,74 +51,29 @@ function App() {
           >
             Загрузить файл
           </Button>
-          )}
-      />
-      <ModalCard
-        id={MODAL_UPLOAD}
-        onClose={() => setActiveModal(null)}
-        icon={<Icon56NotebookCheckOutline />}
-        header="Импорт презентации"
-        subheader="Загрузите PDF, PPTX и PPT файл, не превышающий 50 МВ и 100 слайдов"
-        actions={(
-          <Button
-            size="l"
-            mode="primary"
-            stretched
-            onClick={() => setActiveModal(null)}
-            before={<Icon16Add />}
-            // as="input"
-            type="file"
-            id="docpicker"
-            accept=".pptx"
-          >
-            Загрузить файл
-          </Button>
-          )}
+        )}
       />
       <ModalCard
         id={MODAL_INTERACTIVE}
         onClose={() => setActiveModal(null)}
         actions={(
           <>
-            <Button
-              size="l"
-              mode="primary"
-              onClick={() => setActiveModal(null)}
-              before={<Icon16Add />}
-            // as="input"
-              type="file"
-              id="docpicker"
-              accept=".pptx"
-            >
-              Загрузить файл
-            </Button>
-            <Button
-              size="l"
-              mode="primary"
-              onClick={() => setActiveModal(null)}
-              before={<Icon16Add />}
-            // as="input"
-              type="file"
-              id="docpicker"
-              accept=".pptx"
-            >
-              Загрузить файл
-            </Button>
-            <Button
-              size="l"
-              mode="primary"
-              onClick={() => setActiveModal(null)}
-              before={<Icon16Add />}
-            // as="input"
-              type="file"
-              id="docpicker"
-              accept=".pptx"
-            >
-              Загрузить файл
-            </Button>
+            <div className='Menu_interactive'>
+              <ActionSheetItem autoClose before={<Icon28EditOutline />}>
+                Голосование
+              </ActionSheetItem>
+              <ActionSheetItem autoClose before={<Icon28ListPlayOutline />}>
+                Квиз
+              </ActionSheetItem>
+              <ActionSheetItem autoClose before={<Icon28ShareOutline />}>
+                Облако тегов
+              </ActionSheetItem>
+
+            </div>
           </>
-          )}
+        )}
       />
+
     </ModalRoot>
   );
 

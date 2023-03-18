@@ -37,3 +37,9 @@
   align-items: center;
   flex-direction: column;
 }
+
+.Menu_interactive {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+}
