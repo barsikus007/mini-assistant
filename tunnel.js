@@ -4,17 +4,14 @@ const signal = controller.signal;
 
 const runTunnel = () => {
   let opened=false;
-  const ssh = exec('ngrok http 10888',{signal});
+  const ssh = exec('ssh -R 80:localhost:10888 nokey@localhost.run',{signal});
   ssh.stdout.on('data',data => {
     process.stdout.write(data)
     const msg = data.toString();
     const d=msg.match(/(https:\/\/.+)$/m)
     if (!opened&&d&&d[0]) {
       opened=true;
-      console.log(
-        `Туннель запущен на: ${d[0]}\n`
-        `Не забудьте поставить https://modheader.com/ `
-        `и прописать там ngrok-skip-browser-warning true`)
+      console.log(`Туннель запущен на: ${d[0]}`)
       exec(`start ${d[0]}`)
     }
   })
@@ -37,7 +34,24 @@ const runVKTunnel = () => {
   vk.on("close",console.log)
 }
 
+const runNgrok = () => {
+  console.log(
+    `ngrok http 10888\n`
+    `Туннель запущен на: ${d[0]}\n`
+    `Не забудьте поставить https://modheader.com/ `
+    `и прописать там ngrok-skip-browser-warning true`)
+}
+
 switch (process.argv[2]) {
+  case "ngrok":
+    console.log("[1] Запуск сервера")
+    const z = exec("npm run dev",{signal});
+    z.stdout.on('data',data => {
+      process.stdout.write(data)
+    })
+    console.log("[2] Открытие туннеля")
+    runNgrok()
+    break;
   case "prod":
     console.log("[1] Сборка проекта")
     const b = exec("npm run build", {signal});
