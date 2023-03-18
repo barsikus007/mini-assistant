@@ -2,17 +2,17 @@ import React, { useState, useEffect, createContext, useContext } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import { View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol } from '@vkontakte/vkui';
 import { GlobalContext, GetRoutes } from './context';
-
+import Slider from './panels/Slider';
 import '@vkontakte/vkui/dist/vkui.css';
 import Home from './panels/Home';
 import Gioconda from './panels/Gioconda';
 import Mainpage from './panels/Mainpage';
 
 const App = () => {
-  const {path,appearance,Appearance} = useContext(GlobalContext)
+  const { path, appearance, Appearance } = useContext(GlobalContext)
   const [fetchedUser, User] = useState(null);
 
-  const VKBridgeSubscribeHandler = ({ detail: { type, data }}) => {
+  const VKBridgeSubscribeHandler = ({ detail: { type, data } }) => {
     if (type === 'VKWebAppUpdateConfig') {
       console.log(data)
       Appearance(data.appearance)
@@ -36,6 +36,7 @@ const App = () => {
                   <Home id='home' fetchedUser={fetchedUser} />
                   <Gioconda id='gioconda' />
                   <Mainpage id='mainpage' />
+                  <Slider id='slider' />
                   <Error id='404' />
                 </View>
               </GetRoutes>

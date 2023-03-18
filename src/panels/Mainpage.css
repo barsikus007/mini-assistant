@@ -10,12 +10,11 @@
 }
 
 .Presentation_menu {
-  display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
   text-align: center;
-  height: 50px;
+  height: 15px;
   gap: 12px;
-  padding-left: 20px;
 }
 
 .Presentation_text {
