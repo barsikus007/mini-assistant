@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import PropTypes from 'prop-types';
 import {
   Panel, PanelHeader, PanelHeaderBack, Text, Button, Banner,
 } from '@vkontakte/vkui';
@@ -7,9 +6,9 @@ import { Icon24Add } from '@vkontakte/icons';
 import './Mainpage.css';
 // import { Title, ZButton, MoreButton } from '../components/styled'
 import { GlobalContext } from '../context';
-import Mainpage from './Mainpage';
+import { MODAL_INTERACTIVE } from '../components/modals';
 
-function Slider({ id }) {
+function Slider({ id, setActiveModal }) {
   const { go } = useContext(GlobalContext);
 
   return (
@@ -63,18 +62,13 @@ function Slider({ id }) {
       />
 
       <div className="New_slide">
-        <Button size="l" appearance="accent" mode="tertiary" before={<Icon24Add />}>
-          <span className="Button_text">Добавить слайд</span>
+        <Button size="l" appearance="accent" mode="tertiary" before={<Icon24Add />} onClick={() => setActiveModal(MODAL_INTERACTIVE)}>
+          <span className="Button_text">Добавить интерактив</span>
         </Button>
       </div>
 
     </Panel>
   );
 }
-
-Mainpage.propTypes = {
-  id: PropTypes.string.isRequired,
-  go: PropTypes.func.isRequired,
-};
 
 export default Slider;
