@@ -1,3 +1,4 @@
+import { connect } from 'ngrok';
 import { exec } from 'child_process';
 const controller = new AbortController();
 const signal = controller.signal;
@@ -35,8 +36,9 @@ const runVKTunnel = () => {
 }
 
 const runNgrok = () => {
-  console.log(
-    `ngrok http 10888\nНе забудьте поставить https://modheader.com/ и прописать там ngrok-skip-browser-warning true`)
+  // TODO обнулить токен (или репо)
+  connect({proto: 'http', addr: 10888, authtoken: '2NBqmWzzlbdWTXZJTacKkW7Py9z_5NUcZWYSuyt1G1KEiXsjW'}).then(url => console.log(
+    `${url}, Не забудьте поставить https://modheader.com/ и прописать там ngrok-skip-browser-warning true`))
 }
 
 switch (process.argv[2]) {
