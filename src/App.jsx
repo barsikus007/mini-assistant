@@ -3,7 +3,9 @@ import bridge from '@vkontakte/vk-bridge';
 import {
   View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard, ActionSheetItem, ActionSheet,
 } from '@vkontakte/vkui';
-import { Icon28ShareOutline, Icon28ListPlayOutline, Icon28EditOutline, Icon16Add, Icon56NotebookCheckOutline } from '@vkontakte/icons';
+import {
+  Icon28ShareOutline, Icon28ListPlayOutline, Icon28EditOutline, Icon16Add, Icon56NotebookCheckOutline,
+} from '@vkontakte/icons';
 import '@vkontakte/vkui/dist/vkui.css';
 import Error from './panels/Error';
 import { GlobalContext, GetRoutes } from './context';
@@ -57,20 +59,18 @@ function App() {
         id={MODAL_INTERACTIVE}
         onClose={() => setActiveModal(null)}
         actions={(
-          <>
-            <div className='Menu_interactive'>
-              <ActionSheetItem autoClose before={<Icon28EditOutline />}>
-                Голосование
-              </ActionSheetItem>
-              <ActionSheetItem autoClose before={<Icon28ListPlayOutline />}>
-                Квиз
-              </ActionSheetItem>
-              <ActionSheetItem autoClose before={<Icon28ShareOutline />}>
-                Облако тегов
-              </ActionSheetItem>
+          <div className="Menu_interactive">
+            <ActionSheetItem autoClose before={<Icon28EditOutline />}>
+              Голосование
+            </ActionSheetItem>
+            <ActionSheetItem autoClose before={<Icon28ListPlayOutline />}>
+              Квиз
+            </ActionSheetItem>
+            <ActionSheetItem autoClose before={<Icon28ShareOutline />}>
+              Облако тегов
+            </ActionSheetItem>
 
-            </div>
-          </>
+          </div>
         )}
       />
 

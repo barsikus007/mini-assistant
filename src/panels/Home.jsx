@@ -36,7 +36,7 @@ function Home({ id, fetchedUser }) {
 
   return (
     <Panel id={id}>
-      <PanelHeader>Пример</PanelHeader>
+      <PanelHeader>Живая Презентация</PanelHeader>
       <div />
       <div style={{
         maxWidth: 600, width: '100%', marginInline: 'auto', marginTop: 20,

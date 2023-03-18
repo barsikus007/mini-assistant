@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import {
   Panel, PanelHeader, PanelHeaderBack, Text, Div, Button, Banner, Image,
 } from '@vkontakte/vkui';
-import { Icon28ArrowDownToSquareOutline } from '@vkontakte/icons';
+import { Icon28ArrowDownToSquareOutline, Icon56DataStackLockOutline } from '@vkontakte/icons';
 import './Mainpage.css';
 import { MODAL_UPLOAD } from '../components/modals';
 import { GlobalContext } from '../context';
@@ -40,7 +40,7 @@ function Mainpage({ id, setActiveModal }) {
   return (
     <Panel id={id}>
       <PanelHeader
-        before={<PanelHeaderBack onClick={() => go('home')} />}
+        before={<Icon56DataStackLockOutline onClick={() => go('test')} />}
       >
         <Text className="Logo_name">
           Живая Презентация
@@ -51,9 +51,10 @@ function Mainpage({ id, setActiveModal }) {
           <span className="Button_text">Загрузить презентацию</span>
         </Button>
       </Div>
-      {presentations.map(presentation => (
-        <Div className="Banner_wrap" key={presentation.id}>
+      <Div className="Banner_wrap">
+        {presentations.map(presentation => (
           <Banner
+            key={presentation.id}
             before={(
               <Image
                 size={128}
@@ -65,8 +66,8 @@ function Mainpage({ id, setActiveModal }) {
             asideMode="dismiss"
             actions={<Button onClick={() => go('slider')}>Подробнее</Button>}
           />
-        </Div>
-      ))}
+        ))}
+      </Div>
     </Panel>
   );
 }
