@@ -13,4 +13,3 @@ export const ZButton = styled(Button)`
   text-align: center;
   color: palevioletred;
 `;
-

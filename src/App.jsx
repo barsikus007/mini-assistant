@@ -1,43 +1,71 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import bridge from '@vkontakte/vk-bridge';
-import { View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol } from '@vkontakte/vkui';
+import {
+  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard,
+} from '@vkontakte/vkui';
+import { Icon16Add, Icon56MoneyTransferOutline } from '@vkontakte/icons';
+import '@vkontakte/vkui/dist/vkui.css';
+
+import Error from './panels/Error';
 import { GlobalContext, GetRoutes } from './context';
 import Slider from './panels/Slider';
-import '@vkontakte/vkui/dist/vkui.css';
 import Home from './panels/Home';
-import Gioconda from './panels/Gioconda';
 import Mainpage from './panels/Mainpage';
+import { MODAL_UPLOAD } from './components/modals';
 
-const App = () => {
-  const { path, appearance, Appearance } = useContext(GlobalContext)
+function App() {
+  const { path, appearance, Appearance } = useContext(GlobalContext);
   const [fetchedUser, User] = useState(null);
+  const [activeModal, setActiveModal] = useState(null);
 
   const VKBridgeSubscribeHandler = ({ detail: { type, data } }) => {
     if (type === 'VKWebAppUpdateConfig') {
-      console.log(data)
-      Appearance(data.appearance)
+      console.log(data);
+      Appearance(data.appearance);
     }
-  }
+  };
 
   useEffect(() => {
     bridge.subscribe(VKBridgeSubscribeHandler);
-    bridge.send('VKWebAppGetUserInfo').then(User)
-    return () => bridge.unsubscribe(VKBridgeSubscribeHandler)
+    bridge.send('VKWebAppGetUserInfo').then(User);
+    return () => bridge.unsubscribe(VKBridgeSubscribeHandler);
   }, []);
+
+  const modal = (
+    <ModalRoot activeModal={activeModal}>
+      <ModalCard
+        id={MODAL_UPLOAD}
+        onClose={() => setActiveModal(null)}
+        icon={<Icon56MoneyTransferOutline />}
+        header="Импорт презентации"
+        subheader="Загрузите PDF, PPTX и PPT файл, не превышающий 50 МВ и 100 слайдов"
+        actions={(
+          <Button
+            size="l"
+            mode="primary"
+            stretched
+            onClick={() => setActiveModal(null)}
+            before={<Icon16Add />}
+          >
+            Загрузить файл
+          </Button>
+          )}
+      />
+    </ModalRoot>
+  );
 
   return (
     <ConfigProvider appearance={appearance}>
       <AdaptivityProvider>
         <AppRoot>
-          <SplitLayout>
+          <SplitLayout modal={modal}>
             <SplitCol>
-              <GetRoutes index='home' fallback='404'>
+              <GetRoutes index="home" fallback="404">
                 <View id="home" activePanel={path}>
-                  <Home id='home' fetchedUser={fetchedUser} />
-                  <Gioconda id='gioconda' />
-                  <Mainpage id='mainpage' />
-                  <Slider id='slider' />
-                  <Error id='404' />
+                  <Home id="home" fetchedUser={fetchedUser} />
+                  <Mainpage id="mainpage" setActiveModal={setActiveModal} />
+                  <Slider id="slider" />
+                  <Error id="404" />
                 </View>
               </GetRoutes>
             </SplitCol>

@@ -1,26 +1,30 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Footnote, Panel, PanelHeader, PanelHeaderBack, Text, CellButton, Group, Div, Button, IconButton, Banner, Image } from '@vkontakte/vkui';
-import { Icon16Add, Icon24Add, Icon28ArrowDownToSquareOutline, Icon16MoreVertical } from '@vkontakte/icons';
+import {
+  Panel, PanelHeader, PanelHeaderBack, Text, Button, Banner,
+} from '@vkontakte/vkui';
+import { Icon24Add } from '@vkontakte/icons';
 import './Mainpage.css';
 // import { Title, ZButton, MoreButton } from '../components/styled'
 import { GlobalContext } from '../context';
 import Mainpage from './Mainpage';
-const Slider = props => {
-  const { go } = useContext(GlobalContext)
+
+function Slider({ id }) {
+  const { go } = useContext(GlobalContext);
 
   return (
-    <Panel id={props.id}>
+    <Panel id={id}>
       <PanelHeader
-        before={<PanelHeaderBack onClick={() => go("mainpage")} />} >
-        <Text className='Logo_name'>
+        before={<PanelHeaderBack onClick={() => go('mainpage')} />}
+      >
+        <Text className="Logo_name">
           Живая Презентация
         </Text>
       </PanelHeader>
       <Banner
         mode="image"
-        size='l'
-        background={
+        size="l"
+        background={(
           <div
             style={{
               backgroundColor: '#000',
@@ -32,17 +36,15 @@ const Slider = props => {
               backgroundRepeat: 'no-repeat',
             }}
           />
-        }
-        header={<div style={{ opacity: .0, height: 80 }} />}
-        subheader={<div style={{ opacity: .0, height: 80 }} />}
+        )}
+        header={<div style={{ opacity: 0.0, height: 80 }} />}
+        subheader={<div style={{ opacity: 0.0, height: 80 }} />}
         asideMode="dismiss"
-
-      ></Banner>
+      />
       <Banner
-
         mode="image"
-        size='l'
-        background={
+        size="l"
+        background={(
           <div
             style={{
               backgroundColor: '#000',
@@ -54,23 +56,21 @@ const Slider = props => {
               backgroundRepeat: 'no-repeat',
             }}
           />
-        }
-        header={<div style={{ opacity: .0, height: 80 }} />}
-        subheader={<div style={{ opacity: .0, height: 80 }} />}
+        )}
+        header={<div style={{ opacity: 0.0, height: 80 }} />}
+        subheader={<div style={{ opacity: 0.0, height: 80 }} />}
         asideMode="dismiss"
+      />
 
-      ></Banner>
-
-      <div className='New_slide'>
-        <Button size="l" appearance="accent" mode="tertiary" before={<Icon24Add />} >
-          <span className='Button_text'>Добавить слайд</span>
+      <div className="New_slide">
+        <Button size="l" appearance="accent" mode="tertiary" before={<Icon24Add />}>
+          <span className="Button_text">Добавить слайд</span>
         </Button>
       </div>
 
-
-    </Panel >
-  )
-};
+    </Panel>
+  );
+}
 
 Mainpage.propTypes = {
   id: PropTypes.string.isRequired,

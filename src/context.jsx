@@ -1,49 +1,56 @@
-import { useEffect } from "react";
-import { useContext } from "react";
-import { createContext, useState } from "react";
+import {
+  useEffect, useContext, createContext, useState,
+} from 'react';
 
 const defaultData = {
-  path:"home",
-  aviableRoutes:[],
-  fallback:"404",
-  appearance:"light"
-}
+  path: 'home',
+  aviableRoutes: [],
+  fallback: '404',
+  appearance: 'light',
+};
 
 const GlobalContext = createContext(defaultData);
 
-const GlobalProvider = ({ children }) => {
+function GlobalProvider({ children }) {
   const [data, Data] = useState(defaultData);
-  
-  const go = (path) => {
-    if (data.aviableRoutes.includes(path)) Data(e=>({...e,path}))
-    else Data(e=>({...e,path:e.fallback}));
-  }
 
-  const Appearance = (appearance) => {
-    Data(e=>({...e,appearance}));
-  }
+  const go = path => {
+    if (data.aviableRoutes.includes(path)) Data(e => ({ ...e, path }));
+    else Data(e => ({ ...e, path: e.fallback }));
+  };
+
+  const Appearance = appearance => {
+    Data(e => ({ ...e, appearance }));
+  };
 
   return (
-    <GlobalContext.Provider value={{ ...data, setGlobalData:Data, Appearance, go }}>
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
+    <GlobalContext.Provider value={{
+      ...data, setGlobalData: Data, Appearance, go,
+    }}
+    >
       {children}
     </GlobalContext.Provider>
   );
-};
+}
 
-const GetRoutes = ({children,fallback="404",index="home"}) => {
-  const {setGlobalData} = useContext(GlobalContext)
+function GetRoutes({ children, fallback = '404', index = 'home' }) {
+  const { setGlobalData } = useContext(GlobalContext);
 
-  useEffect(()=>{
-    const rc = children.props?.children
-    console.log(rc)
+  useEffect(() => {
+    const rc = children.props?.children;
+    console.log(rc);
     if (rc?.[0]) {
-      setGlobalData(e=>({...e,fallback,index,
-        aviableRoutes:rc.map(e=>e.props?.id)
-      }))
+      setGlobalData(e => ({
+        ...e,
+        fallback,
+        index,
+        aviableRoutes: rc.map(ez => ez.props?.id),
+      }));
     }
-  },[])
+  }, []);
 
-  return <>{children}</>
+  return children;
 }
 
 export { GlobalContext, GlobalProvider, GetRoutes };
