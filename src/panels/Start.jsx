@@ -7,7 +7,7 @@ import {
 import { SkeletonAvatar, SkeletonText } from '../components/Skeleton';
 import { GlobalContext } from '../context';
 
-function Home({ id, fetchedUser }) {
+function Start({ id, fetchedUser }) {
   const { go } = useContext(GlobalContext);
   const d = useRef();
 
@@ -74,8 +74,8 @@ function Home({ id, fetchedUser }) {
         </div>
         <Group header={<Header mode="secondary">Пример навигации</Header>}>
           <Div>
-            <Button stretched size="l" mode="secondary" onClick={() => go('mainpage')}>
-              Mainpage
+            <Button stretched size="l" mode="secondary" onClick={() => go('speaker')}>
+              SpeakerView
             </Button>
           </Div>
           <Div>
@@ -89,4 +89,4 @@ function Home({ id, fetchedUser }) {
   );
 }
 
-export default Home;
+export default Start;

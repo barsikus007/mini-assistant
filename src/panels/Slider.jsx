@@ -3,7 +3,7 @@ import {
   Panel, PanelHeader, PanelHeaderBack, Text, Button, Banner,
 } from '@vkontakte/vkui';
 import { Icon24Add } from '@vkontakte/icons';
-import './Mainpage.css';
+import './SpeakerView.css';
 // import { Title, ZButton, MoreButton } from '../components/styled'
 import { GlobalContext } from '../context';
 import { MODAL_INTERACTIVE } from '../components/modals';
@@ -14,7 +14,7 @@ function Slider({ id, setActiveModal }) {
   return (
     <Panel id={id}>
       <PanelHeader
-        before={<PanelHeaderBack onClick={() => go('mainpage')} />}
+        before={<PanelHeaderBack onClick={() => go('speaker')} />}
       >
         <Text className="Logo_name">
           Живая Презентация

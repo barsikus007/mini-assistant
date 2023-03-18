@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import {
-  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard, ActionSheetItem, ActionSheet,
+  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard, ActionSheetItem,
 } from '@vkontakte/vkui';
 import {
   Icon28ShareOutline, Icon28ListPlayOutline, Icon28EditOutline, Icon16Add, Icon56NotebookCheckOutline,
@@ -10,8 +10,8 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Error from './panels/Error';
 import { GlobalContext, GetRoutes } from './context';
 import Slider from './panels/Slider';
-import Home from './panels/Home';
-import Mainpage from './panels/Mainpage';
+import Start from './panels/Start';
+import SpeakerView from './panels/SpeakerView';
 import { MODAL_INTERACTIVE, MODAL_UPLOAD } from './components/modals';
 
 function App() {
@@ -83,10 +83,10 @@ function App() {
         <AppRoot>
           <SplitLayout modal={modal}>
             <SplitCol>
-              <GetRoutes index="home" fallback="404">
-                <View id="home" activePanel={path}>
-                  <Home id="home" fetchedUser={fetchedUser} />
-                  <Mainpage id="mainpage" setActiveModal={setActiveModal} />
+              <GetRoutes index="start" fallback="404">
+                <View id="start" activePanel={path}>
+                  <Start id="start" fetchedUser={fetchedUser} />
+                  <SpeakerView id="speaker" setActiveModal={setActiveModal} />
                   <Slider id="slider" setActiveModal={setActiveModal} />
                   <Error id="404" />
                 </View>

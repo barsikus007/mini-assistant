@@ -3,7 +3,7 @@ import {
 } from 'react';
 
 const defaultData = {
-  path: 'home',
+  path: 'start',
   aviableRoutes: [],
   fallback: '404',
   appearance: 'light',
@@ -34,7 +34,7 @@ function GlobalProvider({ children }) {
   );
 }
 
-function GetRoutes({ children, fallback = '404', index = 'home' }) {
+function GetRoutes({ children, fallback = '404', index = 'start' }) {
   const { setGlobalData } = useContext(GlobalContext);
 
   useEffect(() => {

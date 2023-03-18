@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import {
   Panel, PanelHeader, PanelHeaderBack, Text, Div, Button, Banner, Image,
 } from '@vkontakte/vkui';
-import { Icon28ArrowDownToSquareOutline, Icon56DataStackLockOutline } from '@vkontakte/icons';
-import './Mainpage.css';
+import { Icon28ArrowDownToSquareOutline } from '@vkontakte/icons';
+import './SpeakerView.css';
 import { MODAL_UPLOAD } from '../components/modals';
 import { GlobalContext } from '../context';
 
-function Mainpage({ id, setActiveModal }) {
+function SpeakerView({ id, setActiveModal }) {
   const { go } = useContext(GlobalContext);
 
   const presentations = [
@@ -40,7 +40,7 @@ function Mainpage({ id, setActiveModal }) {
   return (
     <Panel id={id}>
       <PanelHeader
-        before={<Icon56DataStackLockOutline onClick={() => go('test')} />}
+        before={<PanelHeaderBack onClick={() => go('start')} />}
       >
         <Text className="Logo_name">
           Живая Презентация
@@ -72,4 +72,4 @@ function Mainpage({ id, setActiveModal }) {
   );
 }
 
-export default Mainpage;
+export default SpeakerView;
