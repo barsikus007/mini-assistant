@@ -31,3 +31,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.New_slide {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
