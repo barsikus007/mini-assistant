@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "deploy": "vk-miniapps-deploy",
     "tunnel": "node tunnel.js",
-    "tunnel:lh": "node tunnel.js",
+    "tunnel:lh": "node tunnel.js lh",
     "tunnel:prod": "node tunnel.js prod"
   },
   "dependencies": {
