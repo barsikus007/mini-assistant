@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Alert from './Alert';
 import { Panel, PanelHeader, Header, Button, Group, Cell, Div, Avatar } from '@vkontakte/vkui';
 
 const Home = ({ id, go, fetchedUser }) => (
@@ -16,7 +16,7 @@ const Home = ({ id, go, fetchedUser }) => (
 				</Cell>
 			</Group>}
 
-		<Group header={<Header mode="secondary">Navigation Example</Header>}>
+		<Group header={<Header mode="secondary">Перейдем к нашим проектам? </Header>}>
 			<Div>
 				<Button stretched size="l" mode="secondary" onClick={go} data-to="Mainpage">
 					Show me ur project
