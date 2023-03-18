@@ -20,11 +20,13 @@
 
 .Presentation_text {
   padding-top: 15px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
-  padding-right: 20px;
 }
 
+.Button_text {
+  font-size: 14px;
+}
 
 .Banner_wrap {
   display: flex;

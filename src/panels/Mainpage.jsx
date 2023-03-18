@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Panel, PanelHeader, PanelHeaderBack, Text, CellButton, Group, Div, Button, IconButton, Banner, Image } from '@vkontakte/vkui';
 import { Icon16Add, Icon24Add, Icon28ArrowDownToSquareOutline } from '@vkontakte/icons';
 import './Mainpage.css';
+
+import { Title, ZButton } from '../components/styled'
 import Alert from './Alert';
 const Mainpage = props => (
 
@@ -17,15 +19,15 @@ const Mainpage = props => (
 			<Text className='Presentation_text'>
 				Мои презентации
 			</Text>
-			<Button size="l" appearance="accent" mode="tertiary" before={<Icon28ArrowDownToSquareOutline />} onClick={() => changeActiveModal(MODAL_CARD_MONEY_SEND)}>
-				Загрузить презентацию
+			<Button size="l" appearance="accent" mode="tertiary" before={<Icon28ArrowDownToSquareOutline />} onClick={() => changeActiveModal(MODAL_CARD_MONEY_SEND)}><span className='Button_text'>
+				Загрузить презентацию</span>
 			</Button>
 		</Div>
 		<Div className='Banner_wrap'>
 			<Banner
 				before={
 					<Image
-						size={128}
+						size={96}
 						src="https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg"
 					/>
 				}
@@ -37,7 +39,7 @@ const Mainpage = props => (
 			<Banner
 				before={
 					<Image
-						size={128}
+						size={96}
 						src="https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg"
 					/>
 				}
@@ -49,7 +51,7 @@ const Mainpage = props => (
 			<Banner
 				before={
 					<Image
-						size={128}
+						size={96}
 						src="https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg"
 					/>
 				}
@@ -61,7 +63,7 @@ const Mainpage = props => (
 			<Banner
 				before={
 					<Image
-						size={128}
+						size={96}
 						src="https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg"
 					/>
 				}
@@ -71,6 +73,8 @@ const Mainpage = props => (
 				actions={<Button>Подробнее</Button>}
 			/>
 		</Div>
+		<Title>ZZZ</Title>
+		<ZButton>bnbndl</ZButton>
 	</Panel >
 
 
