@@ -10,6 +10,33 @@ import { GlobalContext } from '../context';
 function Mainpage({ id, setActiveModal }) {
   const { go } = useContext(GlobalContext);
 
+  const presentations = [
+    {
+      id: 1,
+      title: 'Тема презентации 1',
+      description: 'Front-end разработка',
+      image: 'https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg',
+    },
+    {
+      id: 2,
+      title: 'Тема презентации 2',
+      description: 'Front-end разработка',
+      image: 'https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg',
+    },
+    {
+      id: 3,
+      title: 'Тема презентации 3',
+      description: 'Front-end разработка',
+      image: 'https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg',
+    },
+    {
+      id: 4,
+      title: 'Тема презентации 4',
+      description: 'Front-end разработка',
+      image: 'https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg',
+    },
+  ];
+
   return (
     <Panel id={id}>
       <PanelHeader
@@ -24,56 +51,22 @@ function Mainpage({ id, setActiveModal }) {
           <span className="Button_text">Загрузить презентацию</span>
         </Button>
       </Div>
-      <Div className="Banner_wrap">
-        <Banner
-          before={(
-            <Image
-              size={128}
-              src="https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg"
-            />
+      {presentations.map(presentation => (
+        <Div className="Banner_wrap" key={presentation.id}>
+          <Banner
+            before={(
+              <Image
+                size={128}
+                src={presentation.image}
+              />
           )}
-          header="Тема презентации"
-          subheader="Front-end разработка"
-          asideMode="dismiss"
-          actions={<Button>Подробнее</Button>}
-        />
-        <Banner
-          before={(
-            <Image
-              size={128}
-              src="https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg"
-            />
-          )}
-          header="Тема презентации"
-          subheader="Front-end разработка"
-          asideMode="dismiss"
-          actions={<Button>Подробнее</Button>}
-        />
-        <Banner
-          before={(
-            <Image
-              size={128}
-              src="https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg"
-            />
-          )}
-          header="Тема презентации"
-          subheader="Front-end разработка"
-          asideMode="dismiss"
-          actions={<Button>Подробнее</Button>}
-        />
-        <Banner
-          before={(
-            <Image
-              size={128}
-              src="https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg"
-            />
-          )}
-          header="Тема презентации"
-          subheader="Front-end разработка"
-          asideMode="dismiss"
-          actions={<Button>Подробнее</Button>}
-        />
-      </Div>
+            header={presentation.title}
+            subheader={presentation.description}
+            asideMode="dismiss"
+            actions={<Button onClick={() => go('slider')}>Подробнее</Button>}
+          />
+        </Div>
+      ))}
     </Panel>
   );
 }

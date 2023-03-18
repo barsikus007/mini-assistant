@@ -74,18 +74,8 @@ function Home({ id, fetchedUser }) {
         </div>
         <Group header={<Header mode="secondary">Пример навигации</Header>}>
           <Div>
-            <Button stretched size="l" mode="secondary" onClick={() => go('gioconda')}>
-              Покажите мне Мона Лизу
-            </Button>
-          </Div>
-          <Div>
             <Button stretched size="l" mode="secondary" onClick={() => go('mainpage')}>
               Mainpage
-            </Button>
-          </Div>
-          <Div>
-            <Button stretched size="l" mode="secondary" onClick={() => go('slider')}>
-              Slider
             </Button>
           </Div>
           <Div>
