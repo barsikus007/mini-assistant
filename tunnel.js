@@ -37,7 +37,6 @@ const runVKTunnel = () => {
 const runNgrok = () => {
   console.log(
     `ngrok http 10888\n`
-    `Туннель запущен на: ${d[0]}\n`
     `Не забудьте поставить https://modheader.com/ `
     `и прописать там ngrok-skip-browser-warning true`)
 }
