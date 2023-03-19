@@ -32,6 +32,9 @@ function Slider({ id, setPopout, setActiveModal }) {
       </ActionSheetItem>
     </ActionSheet>,
   );
+
+  // TODO https://vkcom.github.io/VKUI/#/Cell
+  // TODO https://vkcom.github.io/VKUI/#/Card
   return (
     <Panel id={id}>
       <CustomHeader

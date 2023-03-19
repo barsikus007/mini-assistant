@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "yarn && yarn dev",
+    "prod": "yarn build && rm -rf build && mv dist build && yarn deploy",
     "dev": "vite",
     "build": "vite build",
     "build:preview": "vite build & vite preview",
