@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom/client';
 import {
   Panel, PanelHeader, Header, Button, Group, Cell, Div, Avatar,
 } from '@vkontakte/vkui';
+
 import { SkeletonAvatar, SkeletonText } from '../components/Skeleton';
 import { GlobalContext } from '../context';
 
-function Start({ id, fetchedUser }) {
+function Home({ id, fetchedUser }) {
   const { go } = useContext(GlobalContext);
   const d = useRef();
 
@@ -35,7 +36,7 @@ function Start({ id, fetchedUser }) {
 
   return (
     <Panel id={id}>
-      <PanelHeader>Живая Презентация</PanelHeader>
+      <PanelHeader>Пример</PanelHeader>
       <div />
       <div style={{
         maxWidth: 600, width: '100%', marginInline: 'auto', marginTop: 20,
@@ -73,8 +74,8 @@ function Start({ id, fetchedUser }) {
         </div>
         <Group header={<Header mode="secondary">Пример навигации</Header>}>
           <Div>
-            <Button stretched size="l" mode="secondary" onClick={() => go('speaker')}>
-              SpeakerView
+            <Button stretched size="l" mode="secondary" onClick={() => go('mainpage')}>
+              Mainpage
             </Button>
           </Div>
           <Div>
@@ -88,4 +89,4 @@ function Start({ id, fetchedUser }) {
   );
 }
 
-export default Start;
+export default Home;

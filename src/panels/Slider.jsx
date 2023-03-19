@@ -10,10 +10,9 @@ import './SpeakerView.css';
 import { GlobalContext } from '../context';
 import { CustomHeader } from '../components/styled';
 import { applicationName } from '../consts';
-
+import Main from './Interactives/Use/Main';
 function Slider({ id, setPopout }) {
   const { go } = useContext(GlobalContext);
-
   const iconsTargetRef = React.useRef();
   const onClose = () => setPopout(null);
   const openIcons = () => setPopout(

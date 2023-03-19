@@ -70,7 +70,6 @@ function App() {
                   <Start id="start" fetchedUser={fetchedUser} />
                   <SpeakerView id="speaker" setActiveModal={setActiveModal} />
                   <Slider id="slider" setPopout={setPopout} />
-                  <Slider id="slider" setPopout={setPopout} />
                   <Error id="404" />
                 </View>
               </GetRoutes>

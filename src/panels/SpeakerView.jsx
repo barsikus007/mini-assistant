@@ -60,7 +60,7 @@ function SpeakerView({ id, setActiveModal }) {
                 size={128}
                 src={presentation.image}
               />
-          )}
+            )}
             header={presentation.title}
             subheader={presentation.description}
             asideMode="dismiss"
