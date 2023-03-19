@@ -19,6 +19,7 @@ import {
 import { Base, BaseHeader } from './components/interactives/speaker/Base';
 import VoteQuiz from './components/interactives/speaker/VoteQuiz';
 import ListenerView from './panels/ListenerView';
+import ListenerQuiz from './panels/ListenerQuiz';
 
 function App() {
   const { path, appearance, Appearance } = useContext(GlobalContext);
@@ -97,7 +98,7 @@ function App() {
                   <Slider id="slider" setPopout={setPopout} setActiveModal={setActiveModal} />
 
                   <ListenerView id="listener" setActiveModal={setActiveModal} />
-
+                  <ListenerQuiz id="listenerquiz" />
                   <Error id="404" />
                 </View>
               </GetRoutes>
