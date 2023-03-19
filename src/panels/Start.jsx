@@ -75,7 +75,7 @@ function Start({ id, fetchedUser }) {
           </Group>
         </div>
         <Group header={<Header mode="secondary">ВЫБЕРИТЕ ДЕЙСТВИЕ</Header>}>
-          <Div>
+          <Div style={{ display: 'flex', gap: 8 }}>
             {/* TODO disabled */}
             <Button
               stretched
@@ -96,18 +96,18 @@ function Start({ id, fetchedUser }) {
             >
               QR сканер
             </Button>
-          </Div>
-          <Div>
             <Button stretched size="l" mode="secondary" onClick={() => go('listener')}>
               Ввести код
             </Button>
           </Div>
+          {/* <Div>
+          </Div> */}
           <Div>
             <Button stretched size="l" mode="outline" onClick={() => go('speakerview')}>
               Создать свою презентацию
             </Button>
           </Div>
-          <Div>
+          {/* <Div>
             <Button stretched size="l" mode="tertiary" onClick={() => go(Math.random())}>
               Этой страницы не существует
             </Button>
@@ -116,7 +116,7 @@ function Start({ id, fetchedUser }) {
             <Button stretched size="l" mode="tertiary" onClick={() => go('test')}>
               Тест
             </Button>
-          </Div>
+          </Div> */}
         </Group>
       </div>
     </Panel>
