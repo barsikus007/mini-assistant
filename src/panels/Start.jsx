@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import {
   Panel, PanelHeader, Header, Button, Group, Cell, Div, Avatar,
 } from '@vkontakte/vkui';
+import bridge from '@vkontakte/vk-bridge';
+
 import { SkeletonAvatar, SkeletonText } from '../components/Skeleton';
 import { GlobalContext } from '../context';
 
@@ -73,13 +75,45 @@ function Start({ id, fetchedUser }) {
         </div>
         <Group header={<Header mode="secondary">Пример навигации</Header>}>
           <Div>
-            <Button stretched size="l" mode="secondary" onClick={() => go('speaker')}>
+            {/* TODO disabled */}
+            <Button
+              stretched
+              size="l"
+              mode="primary"
+              onClick={() => bridge.send('VKWebAppOpenCodeReader')
+                .then(data => {
+                  if (data.code_data) {
+                    // Сканирование QR-кода прошло успешно
+                    // TODO переход на страницу с кодом
+                    console.log(data.code_data);
+                  }
+                })
+                .catch(error => {
+                  // Ошибка
+                  console.log(error);
+                })}
+            >
+              QR сканер
+            </Button>
+          </Div>
+          <Div>
+            <Button stretched size="l" mode="secondary" onClick={() => go('listener')}>
+              Ввести код
+            </Button>
+          </Div>
+          <Div>
+            <Button stretched size="l" mode="outline" onClick={() => go('speaker')}>
               SpeakerView
             </Button>
           </Div>
           <Div>
-            <Button stretched size="l" mode="secondary" onClick={() => go(Math.random())}>
+            <Button stretched size="l" mode="tertiary" onClick={() => go(Math.random())}>
               Этой страницы не существует
+            </Button>
+          </Div>
+          <Div>
+            <Button stretched size="l" mode="tertiary" onClick={() => go('test')}>
+              Тест
             </Button>
           </Div>
         </Group>

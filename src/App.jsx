@@ -13,9 +13,12 @@ import { GlobalContext, GetRoutes } from './context';
 import Slider from './panels/Slider';
 import Start from './panels/Start';
 import SpeakerView from './panels/SpeakerView';
-import { MODAL_QUIZ, MODAL_UPLOAD, MODAL_VOTE, MODAL_WORDS } from './components/modals';
-import { Base, BaseHeader } from './panels/Interactives/Create/Base';
-import VoteQuiz from './panels/Interactives/Create/VoteQuiz';
+import {
+  MODAL_QUIZ, MODAL_UPLOAD, MODAL_VOTE, MODAL_WORDS,
+} from './components/modals';
+import { Base, BaseHeader } from './components/interactives/speaker/Base';
+import VoteQuiz from './components/interactives/speaker/VoteQuiz';
+import ListenerView from './panels/ListenerView';
 
 function App() {
   const { path, appearance, Appearance } = useContext(GlobalContext);
@@ -89,8 +92,12 @@ function App() {
               <GetRoutes index="start" fallback="404">
                 <View id="start" activePanel={path}>
                   <Start id="start" fetchedUser={fetchedUser} />
+
                   <SpeakerView id="speaker" setActiveModal={setActiveModal} />
                   <Slider id="slider" setPopout={setPopout} setActiveModal={setActiveModal} />
+
+                  <ListenerView id="listener" setActiveModal={setActiveModal} />
+
                   <Error id="404" />
                 </View>
               </GetRoutes>
