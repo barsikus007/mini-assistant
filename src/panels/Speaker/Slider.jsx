@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {
-  Panel, PanelHeaderBack, Button, Banner, ActionSheetItem, ActionSheet, ActionSheetDefaultIosCloseItem, FixedLayout,
+  Panel, PanelHeaderBack, Banner, ActionSheetItem, ActionSheet, ActionSheetDefaultIosCloseItem, CellButton,
 } from '@vkontakte/vkui';
 import {
   Icon24Add, Icon28EditOutline, Icon28ListPlayOutline, Icon28ShareOutline,
@@ -136,21 +136,18 @@ function Slider({ id, setPopout, setActiveModal }) {
       />
 
       <AddSlide>
-        {/* TODO another button */}
-        <Button size="l" appearance="accent" mode="tertiary" before={<Icon24Add />} onClick={openIcons}>
-          <span className="Button_text">Добавить интерактив</span>
-        </Button>
+        <CellButton centered before={<Icon24Add />} onClick={openIcons}>
+          Добавить интерактив
+        </CellButton>
       </AddSlide>
 
-      <FixedLayout vertical="bottom">
-        <Icon32PlayCircle
-          style={{
-            margin: 16, border: '2px white solid', borderRadius: 32, float: 'right', cursor: 'pointer',
-          }}
-          color="#2688EB"
-          onClick={() => go('speakershow')}
-        />
-      </FixedLayout>
+      <Icon32PlayCircle
+        style={{
+          margin: 16, border: '2px white solid', borderRadius: 32, cursor: 'pointer', position: 'fixed', bottom: 0, right: 0,
+        }}
+        color="#2688EB"
+        onClick={() => go('speakershow')}
+      />
     </Panel>
   );
 }

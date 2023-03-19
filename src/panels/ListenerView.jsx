@@ -10,9 +10,11 @@ import {
 import { GlobalContext } from '../context';
 import { CustomHeader } from '../components/styled';
 import { applicationName } from '../consts';
+import Emojis from '../components/😁';
 
 function ListenerView({ id, formItemStatus }) {
   const { go } = useContext(GlobalContext);
+
   return (
     <Panel id={id}>
       <CustomHeader
@@ -33,6 +35,7 @@ function ListenerView({ id, formItemStatus }) {
           Присоединиться
         </Button>
       </Div>
+      <Emojis />
     </Panel>
   );
 }

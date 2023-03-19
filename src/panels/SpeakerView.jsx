@@ -72,8 +72,8 @@ function SpeakerView({ id, setActiveModal, setPopout }) {
         {applicationName}
       </CustomHeader>
       <Presentation>
-        <Button size="l" appearance="accent" mode="tertiary" before={<Icon28ArrowDownToSquareOutline />} onClick={() => setActiveModal(MODAL_UPLOAD)}>
-          <span className="Button_text">Загрузить презентацию</span>
+        <Button size="l" mode="tertiary" before={<Icon28ArrowDownToSquareOutline />} onClick={() => setActiveModal(MODAL_UPLOAD)}>
+          Загрузить презентацию
         </Button>
       </Presentation>
       <BannerWrap>
