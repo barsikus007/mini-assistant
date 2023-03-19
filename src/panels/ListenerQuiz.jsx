@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import {
   Banner,
   Button,
-  Div,
   Panel, PanelHeaderBack, Text,
 } from '@vkontakte/vkui';
 import { GlobalContext } from '../context';
@@ -52,7 +51,7 @@ function ListenerQuiz({ id }) {
       <Button style={{ marginTop: '15px' }} size="l" appearance="negative">
         1
       </Button>
-    </Panel >
+    </Panel>
   );
 }
 
