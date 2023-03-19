@@ -7,6 +7,7 @@ import bridge from '@vkontakte/vk-bridge';
 
 import { SkeletonAvatar, SkeletonText } from '../components/Skeleton';
 import { GlobalContext } from '../context';
+import { applicationName } from '../consts';
 
 function Start({ id, fetchedUser }) {
   const { go } = useContext(GlobalContext);
@@ -37,14 +38,14 @@ function Start({ id, fetchedUser }) {
 
   return (
     <Panel id={id}>
-      <PanelHeader>Живая Презентация</PanelHeader>
+      <PanelHeader>{applicationName}</PanelHeader>
       <div />
       <div style={{
         maxWidth: 600, width: '100%', marginInline: 'auto', marginTop: 20,
       }}
       >
         <div ref={d}>
-          <Group header={<Header mode="secondary">{fetchedUser ? 'Информация о профиле:' : 'Загружаем данные ...'}</Header>}>
+          <Group header={<Header mode="secondary">{fetchedUser ? 'Добро пожаловать!:' : 'Загружаем данные...'}</Header>}>
 
             {(user => {
               const userExists = !!user;
@@ -73,7 +74,7 @@ function Start({ id, fetchedUser }) {
 
           </Group>
         </div>
-        <Group header={<Header mode="secondary">Пример навигации</Header>}>
+        <Group header={<Header mode="secondary">ВЫБЕРИТЕ ДЕЙСТВИЕ</Header>}>
           <Div>
             {/* TODO disabled */}
             <Button
@@ -103,7 +104,7 @@ function Start({ id, fetchedUser }) {
           </Div>
           <Div>
             <Button stretched size="l" mode="outline" onClick={() => go('speaker')}>
-              SpeakerView
+              Создать свою презентацию
             </Button>
           </Div>
           <Div>

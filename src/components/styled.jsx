@@ -15,5 +15,5 @@ export const FlexDiv = styled.div`
 
 export const CusHeader = styled.h1`
   width:20px;
-  background-color:rgb(255, 255, 128,0.4);;
+  background-color:rgb(255, 255, 128, 0.4);
 `;

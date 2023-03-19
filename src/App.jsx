@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import {
-  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard, ModalPage,
+  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, ModalRoot, ModalCard, ModalPage, File,
 } from '@vkontakte/vkui';
 import {
   Icon16Add, Icon56NotebookCheckOutline,
@@ -47,20 +47,17 @@ function App() {
         onClose={() => setActiveModal(null)}
         icon={<Icon56NotebookCheckOutline />}
         header="Импорт презентации"
-        subheader="Загрузите PDF, PPTX и PPT файл, не превышающий 50 МВ и 100 слайдов"
+        subheader="Загрузите PDF или PPTX файл, не превышающий 50 МВ и 100 слайдов"
         actions={(
-          <Button
+          <File
             size="l"
             mode="primary"
             stretched
             before={<Icon16Add />}
-            // as="input"
-            type="file"
-            id="docpicker"
-            accept=".pptx"
+            accept=".pdf,.pptx"
           >
             Загрузить файл
-          </Button>
+          </File>
         )}
       />
       <ModalPage

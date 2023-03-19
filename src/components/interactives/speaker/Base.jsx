@@ -1,5 +1,6 @@
 import {
   FormItem,
+  FormLayout,
   Group,
   Input,
   ModalPageHeader, PanelHeaderClose, PanelHeaderSubmit, Switch, useAdaptivityConditionalRender,
@@ -26,27 +27,29 @@ export function BaseHeader({ title, setActiveModal }) {
 export function Base({ children }) {
   return (
     <Group>
-      <FormItem top="Ваш вопрос">
-        <Input placeholder="Сколько мышат съел Сергей Кашатов?" />
-      </FormItem>
-      {children}
-      <FormItem top="Таймер">
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 8,
-        }}
-        >
-          <Icon24ClockOutline />
-          {' '}
-          Таймер
-          {' '}
-          <Input placeholder="20" />
-          {' '}
-          сек
-          <Switch />
-        </div>
-      </FormItem>
+      <FormLayout>
+        <FormItem top="Ваш вопрос">
+          <Input placeholder="Сколько мышат съел Сергей Кашатов?" />
+        </FormItem>
+        {children}
+        <FormItem>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+          }}
+          >
+            <Icon24ClockOutline />
+            {' '}
+            Таймер
+            {' '}
+            <Input placeholder="20" />
+            {' '}
+            сек
+            <Switch />
+          </div>
+        </FormItem>
+      </FormLayout>
     </Group>
   );
 }
