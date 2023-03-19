@@ -36,3 +36,21 @@ export const BannerWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
+
+export const ShowIdentif = styled.div`
+  display: flex;
+  justify-content: space-between;
+  text-align:center;
+  align-items:center;
+  margin:50px auto;
+  gap: 10px;
+`;
+
+export const ShowTitle = styled.text`
+  font-weight: bold;
+`;
+
+export const ShowWrapButtons = styled.div`
+  display: flex;
+  justifyContent: space-between;
+`;
