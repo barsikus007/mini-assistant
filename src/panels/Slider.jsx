@@ -5,10 +5,8 @@ import {
 import {
   Icon24Add, Icon28EditOutline, Icon28ListPlayOutline, Icon28ShareOutline,
 } from '@vkontakte/icons';
-import './SpeakerView.css';
-// import { Title, ZButton, MoreButton } from '../components/styled'
 import { GlobalContext } from '../context';
-import { CustomHeader } from '../components/styled';
+import { CustomHeader, AddSlide } from '../components/styled';
 import { applicationName } from '../consts';
 import { MODAL_QUIZ, MODAL_VOTE, MODAL_WORDS } from '../components/modals';
 
@@ -82,11 +80,11 @@ function Slider({ id, setPopout, setActiveModal }) {
         asideMode="dismiss"
       />
 
-      <div className="New_slide">
+      <AddSlide>
         <Button size="l" appearance="accent" mode="tertiary" before={<Icon24Add />} onClick={openIcons}>
           <span className="Button_text">Добавить интерактив</span>
         </Button>
-      </div>
+      </AddSlide>
 
     </Panel>
   );

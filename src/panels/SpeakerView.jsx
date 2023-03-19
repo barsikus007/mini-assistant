@@ -1,12 +1,11 @@
 import { useContext } from 'react';
 import {
-  Panel, PanelHeaderBack, Div, Button, Banner, Image,
+  Panel, PanelHeaderBack, Button, Banner, Image,
 } from '@vkontakte/vkui';
 import { Icon28ArrowDownToSquareOutline } from '@vkontakte/icons';
-import './SpeakerView.css';
 import { MODAL_UPLOAD } from '../components/modals';
 import { GlobalContext } from '../context';
-import { CustomHeader } from '../components/styled';
+import { CustomHeader, Presentation, BannerWrap } from '../components/styled';
 import { applicationName } from '../consts';
 
 function SpeakerView({ id, setActiveModal }) {
@@ -46,12 +45,12 @@ function SpeakerView({ id, setActiveModal }) {
       >
         {applicationName}
       </CustomHeader>
-      <Div className="Presentation_menu">
+      <Presentation>
         <Button size="l" appearance="accent" mode="tertiary" before={<Icon28ArrowDownToSquareOutline />} onClick={() => setActiveModal(MODAL_UPLOAD)}>
           <span className="Button_text">Загрузить презентацию</span>
         </Button>
-      </Div>
-      <Div className="Banner_wrap">
+      </Presentation>
+      <BannerWrap>
         {presentations.map(presentation => (
           <Banner
             key={presentation.id}
@@ -67,7 +66,7 @@ function SpeakerView({ id, setActiveModal }) {
             actions={<Button onClick={() => go('slider')}>Подробнее</Button>}
           />
         ))}
-      </Div>
+      </BannerWrap>
     </Panel>
   );
 }
