@@ -10,8 +10,9 @@ import './SpeakerView.css';
 import { GlobalContext } from '../context';
 import { CustomHeader } from '../components/styled';
 import { applicationName } from '../consts';
-import Main from './Interactives/Use/Main';
-function Slider({ id, setPopout }) {
+import { MODAL_QUIZ, MODAL_VOTE, MODAL_WORDS } from '../components/modals';
+
+function Slider({ id, setPopout, setActiveModal }) {
   const { go } = useContext(GlobalContext);
   const iconsTargetRef = React.useRef();
   const onClose = () => setPopout(null);
@@ -21,14 +22,14 @@ function Slider({ id, setPopout }) {
       iosCloseItem={<ActionSheetDefaultIosCloseItem />}
       toggleRef={iconsTargetRef}
     >
-      <ActionSheetItem autoClose before={<Icon28EditOutline />}>
-        Голосование
+      <ActionSheetItem autoClose before={<Icon28EditOutline />} onClick={() => setActiveModal(MODAL_VOTE)}>
+        {MODAL_VOTE}
       </ActionSheetItem>
-      <ActionSheetItem autoClose before={<Icon28ListPlayOutline />}>
-        Квиз
+      <ActionSheetItem autoClose before={<Icon28ListPlayOutline />} onClick={() => setActiveModal(MODAL_QUIZ)}>
+        {MODAL_QUIZ}
       </ActionSheetItem>
-      <ActionSheetItem autoClose before={<Icon28ShareOutline />}>
-        Облако тегов
+      <ActionSheetItem autoClose before={<Icon28ShareOutline />} onClick={() => setActiveModal(MODAL_WORDS)}>
+        {MODAL_WORDS}
       </ActionSheetItem>
     </ActionSheet>,
   );

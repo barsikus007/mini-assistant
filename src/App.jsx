@@ -1,7 +1,8 @@
+/* eslint-disable react/no-unstable-nested-components */
 import { useState, useEffect, useContext } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import {
-  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard,
+  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard, ModalPage,
 } from '@vkontakte/vkui';
 import {
   Icon16Add, Icon56NotebookCheckOutline,
@@ -12,7 +13,9 @@ import { GlobalContext, GetRoutes } from './context';
 import Slider from './panels/Slider';
 import Start from './panels/Start';
 import SpeakerView from './panels/SpeakerView';
-import { MODAL_UPLOAD } from './components/modals';
+import { MODAL_QUIZ, MODAL_UPLOAD, MODAL_VOTE, MODAL_WORDS } from './components/modals';
+import { Base, BaseHeader } from './panels/Interactives/Create/Base';
+import VoteQuiz from './panels/Interactives/Create/VoteQuiz';
 
 function App() {
   const { path, appearance, Appearance } = useContext(GlobalContext);
@@ -56,6 +59,24 @@ function App() {
           </Button>
         )}
       />
+      <ModalPage
+        id={MODAL_QUIZ}
+        header={<BaseHeader title={MODAL_QUIZ} setActiveModal={setActiveModal} />}
+      >
+        <VoteQuiz isQuiz />
+      </ModalPage>
+      <ModalPage
+        id={MODAL_VOTE}
+        header={<BaseHeader title={MODAL_VOTE} setActiveModal={setActiveModal} />}
+      >
+        <VoteQuiz />
+      </ModalPage>
+      <ModalPage
+        id={MODAL_WORDS}
+        header={<BaseHeader title={MODAL_WORDS} setActiveModal={setActiveModal} />}
+      >
+        <Base>{MODAL_WORDS}</Base>
+      </ModalPage>
     </ModalRoot>
   );
 
@@ -69,7 +90,7 @@ function App() {
                 <View id="start" activePanel={path}>
                   <Start id="start" fetchedUser={fetchedUser} />
                   <SpeakerView id="speaker" setActiveModal={setActiveModal} />
-                  <Slider id="slider" setPopout={setPopout} />
+                  <Slider id="slider" setPopout={setPopout} setActiveModal={setActiveModal} />
                   <Error id="404" />
                 </View>
               </GetRoutes>
