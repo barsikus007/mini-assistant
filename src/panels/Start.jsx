@@ -103,7 +103,7 @@ function Start({ id, fetchedUser }) {
             </Button>
           </Div>
           <Div>
-            <Button stretched size="l" mode="outline" onClick={() => go('speaker')}>
+            <Button stretched size="l" mode="outline" onClick={() => go('speakerview')}>
               Создать свою презентацию
             </Button>
           </Div>

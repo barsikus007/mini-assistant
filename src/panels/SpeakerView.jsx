@@ -90,7 +90,7 @@ function SpeakerView({ id, setActiveModal, setPopout }) {
             subheader={presentation.description}
             asideMode="dismiss"
             onDismiss={openDeletion}
-            actions={<Button onClick={() => go('slider')}>Подробнее</Button>}
+            actions={<Button onClick={() => go('speakerslider')}>Подробнее</Button>}
           />
         ))}
       </BannerWrap>

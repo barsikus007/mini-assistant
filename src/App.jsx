@@ -10,7 +10,8 @@ import {
 import '@vkontakte/vkui/dist/vkui.css';
 import Error from './panels/Error';
 import { GlobalContext, GetRoutes } from './context';
-import Slider from './panels/Slider';
+import Slider from './panels/Speaker/Slider';
+import Show from './panels/Speaker/Show';
 import Start from './panels/Start';
 import SpeakerView from './panels/SpeakerView';
 import {
@@ -91,8 +92,9 @@ function App() {
                 <View id="start" activePanel={path}>
                   <Start id="start" fetchedUser={fetchedUser} />
 
-                  <SpeakerView id="speaker" setPopout={setPopout} setActiveModal={setActiveModal} />
-                  <Slider id="slider" setPopout={setPopout} setActiveModal={setActiveModal} />
+                  <SpeakerView id="speakerview" setPopout={setPopout} setActiveModal={setActiveModal} />
+                  <Slider id="speakerslider" setPopout={setPopout} setActiveModal={setActiveModal} />
+                  <Show id="speakershow" />
 
                   <ListenerView id="listener" setActiveModal={setActiveModal} />
                   <ListenerQuiz id="listenerquiz" />

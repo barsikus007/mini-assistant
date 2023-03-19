@@ -6,9 +6,9 @@ import {
   Icon24Add, Icon28EditOutline, Icon28ListPlayOutline, Icon28ShareOutline,
   Icon32PlayCircle,
 } from '@vkontakte/icons';
-import { GlobalContext } from '../context';
-import { CustomHeader, AddSlide } from '../components/styled';
-import { MODAL_QUIZ, MODAL_VOTE, MODAL_WORDS } from '../components/modals';
+import { GlobalContext } from '../../context';
+import { CustomHeader, AddSlide } from '../../components/styled';
+import { MODAL_QUIZ, MODAL_VOTE, MODAL_WORDS } from '../../components/modals';
 
 function Slider({ id, setPopout, setActiveModal }) {
   const { go } = useContext(GlobalContext);
@@ -35,7 +35,7 @@ function Slider({ id, setPopout, setActiveModal }) {
   return (
     <Panel id={id}>
       <CustomHeader
-        before={<PanelHeaderBack onClick={() => go('speaker')} />}
+        before={<PanelHeaderBack onClick={() => go('speakerview')} />}
       >
         {presentationName}
       </CustomHeader>
@@ -136,6 +136,7 @@ function Slider({ id, setPopout, setActiveModal }) {
       />
 
       <AddSlide>
+        {/* TODO another button */}
         <Button size="l" appearance="accent" mode="tertiary" before={<Icon24Add />} onClick={openIcons}>
           <span className="Button_text">Добавить интерактив</span>
         </Button>
@@ -147,6 +148,7 @@ function Slider({ id, setPopout, setActiveModal }) {
             margin: 16, border: '2px white solid', borderRadius: 32, float: 'right', cursor: 'pointer',
           }}
           color="#2688EB"
+          onClick={() => go('speakershow')}
         />
       </FixedLayout>
     </Panel>
