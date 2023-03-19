@@ -51,10 +51,10 @@ function Show({ id }) {
       />
       <Div style={{ justifyContent: 'space-around', display: 'flex', marginTop: '40px' }}>
         <Button onClick={() => go('listenerquiz')}>
-          Присоединиться
+          Предыдущий
         </Button>
         <Button onClick={() => go('listenerquiz')}>
-          Присоединиться
+          Следующий
         </Button>
       </Div>
     </Panel>
