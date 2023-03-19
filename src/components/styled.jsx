@@ -4,7 +4,6 @@ import { PanelHeader } from '@vkontakte/vkui';
 
 export const CustomHeader = styled(PanelHeader)`
   & span {font-size: 16px !important}
-  color: blue;
 `;
 
 export const FlexDiv = styled.div`

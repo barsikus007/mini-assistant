@@ -91,7 +91,7 @@ function App() {
                 <View id="start" activePanel={path}>
                   <Start id="start" fetchedUser={fetchedUser} />
 
-                  <SpeakerView id="speaker" setActiveModal={setActiveModal} />
+                  <SpeakerView id="speaker" setPopout={setPopout} setActiveModal={setActiveModal} />
                   <Slider id="slider" setPopout={setPopout} setActiveModal={setActiveModal} />
 
                   <ListenerView id="listener" setActiveModal={setActiveModal} />
