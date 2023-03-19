@@ -14,27 +14,27 @@ function SpeakerView({ id, setActiveModal, setPopout }) {
   const presentations = [ // TODOBACK получение
     {
       id: 1,
-      title: 'Забастовка 1',
-      description: 'Front-end разработка',
-      image: 'https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg',
+      title: 'Вконтакте',
+      description: 'Не забудьте добавить описание',
+      image: 'https://sun9-57.userapi.com/impg/2Ptna4psiEv5lCRV9GAZJq4985e_B9Y45Powmw/EMfsTg3eB9w.jpg?size=96x96&quality=96&sign=e8a8930587cc97af24a6637d5528ce5d&type=album',
     },
     {
       id: 2,
-      title: 'Забастовка 2',
-      description: 'Front-end разработка',
-      image: 'https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg',
+      title: 'Центр инвест',
+      description: 'Не забудьте добавить описание',
+      image: 'https://sun9-13.userapi.com/impg/IR02sfMzGJQLCFFsxKCBDCq05qrHdYVyN3ME0Q/ntj8MXG_7Fs.jpg?size=96x97&quality=96&sign=033bc72376279a1175e174c559225659&type=album',
     },
     {
       id: 3,
-      title: 'Забастовка 3',
-      description: 'Front-end разработка',
-      image: 'https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg',
+      title: 'Хакатон',
+      description: 'Не забудьте добавить описание',
+      image: 'https://sun9-4.userapi.com/impg/OOrGdXZ4lS9auqUpSJ8ZcdzyX15XTtvVO9ATsQ/xgq5NG-dBMQ.jpg?size=96x97&quality=96&sign=3db3940f6ebae056cb849a0f927b356c&type=album',
     },
     {
       id: 4,
-      title: 'Забастовка 4',
-      description: 'Front-end разработка',
-      image: 'https://sun9-32.userapi.com/uFzLOK55iY7pC0DHjneEdP9G6gXcXi2Mxj9wVA/wnTmzh_blNM.jpg',
+      title: 'Забастовка',
+      description: 'Не забудьте добавить описание',
+      image: 'https://55.img.avito.st/avatar/social/96x96/11483806155.jpg',
     },
   ];
   const closePopout = () => {

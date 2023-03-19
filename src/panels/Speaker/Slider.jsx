@@ -57,6 +57,7 @@ function Slider({ id, setPopout, setActiveModal }) {
               backgroundRepeat: 'no-repeat',
               cursor: 'pointer',
               pointerEvents: 'auto',
+              /* tp193-319-384-229-s30-audi-presentation-10 1 */
             }}
           />
         )}

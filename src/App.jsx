@@ -21,6 +21,9 @@ import { Base, BaseHeader } from './components/interactives/speaker/Base';
 import VoteQuiz from './components/interactives/speaker/VoteQuiz';
 import ListenerView from './panels/ListenerView';
 import ListenerQuiz from './panels/ListenerQuiz';
+import NotGoodResults from './components/😖';
+import GoodResults from './components/😘';
+import VoteStatistic from './components/VoteStatistic';
 
 function App() {
   const { path, appearance, Appearance } = useContext(GlobalContext);
@@ -95,7 +98,9 @@ function App() {
                   <SpeakerView id="speakerview" setPopout={setPopout} setActiveModal={setActiveModal} />
                   <Slider id="speakerslider" setPopout={setPopout} setActiveModal={setActiveModal} />
                   <Show id="speakershow" />
-
+                  <NotGoodResults id="notgoodresults" />
+                  <VoteStatistic id="statistic" />
+                  <GoodResults id="goodresults" />
                   <ListenerView id="listener" setActiveModal={setActiveModal} />
                   <ListenerQuiz id="listenerquiz" />
                   <Error id="404" />

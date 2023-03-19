@@ -54,3 +54,21 @@ export const ShowWrapButtons = styled.div`
   display: flex;
   justifyContent: space-between;
 `;
+
+export const ResultsText = styled.h2`
+  align-items:center;
+  text-align:center;
+`;
+
+export const ImageResults = styled.img`
+margin-top:50px;
+  width:256px;
+  heaght: 128;
+`;
+
+export const StatisticResults = styled.img`
+margin-top:150px;
+  width:350px;
+  heaght: 390px;
+`;
+

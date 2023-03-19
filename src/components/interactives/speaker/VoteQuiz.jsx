@@ -29,8 +29,8 @@ function VoteQuiz({ isQuiz }) {
       <FormLayoutGroup top="Ваши ответы">
         {answers.map(answer => <Answer key={answer.text} isQuiz={isQuiz} />)}
       </FormLayoutGroup>
-      <FlexDiv style={{ justifyContent: 'center', marginBlock: 8 }}><Button before={<Icon16Add />}>Добавить варианты</Button></FlexDiv>
       <FlexDiv style={{ justifyContent: 'start' }}><Checkbox>Множественный выбор</Checkbox></FlexDiv>
+      <FlexDiv style={{ justifyContent: 'center', marginBlock: 8 }}><Button before={<Icon16Add />}>Добавить варианты</Button></FlexDiv>
     </Base>
   );
 }

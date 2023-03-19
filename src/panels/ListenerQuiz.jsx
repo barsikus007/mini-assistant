@@ -37,18 +37,18 @@ function ListenerQuiz({ id }) {
         subheader={<div style={{ opacity: 0.0, height: 80 }} />}
         asideMode="dismiss"
       />
-      <Text> Сколько человек на хакатоне? </Text>
+      <Text style={{ paddingLeft: '12.5px' }}> Сколько человек на хакатоне? </Text>
 
-      <Button style={{ marginTop: '15px' }} size="l" appearance="accent">
+      <Button style={{ margin: '15px 10px 0 10px' }} size="l" appearance="accent">
         700
       </Button>
-      <Button style={{ marginTop: '15px' }} size="l" appearance="positive">
+      <Button style={{ margin: '15px 10px 0 10px' }} size="l" appearance="positive" onClick={() => go('goodresults')}>
         400
       </Button>
-      <Button style={{ marginTop: '15px' }} size="l" appearance="accent">
+      <Button style={{ margin: '15px 10px 0 10px' }} size="l" appearance="accent">
         300
       </Button>
-      <Button style={{ marginTop: '15px' }} size="l" appearance="negative">
+      <Button style={{ margin: '15px 10px 0 10px' }} size="l" appearance="negative" onClick={() => go('notgoodresults')}>
         1
       </Button>
     </Panel>
