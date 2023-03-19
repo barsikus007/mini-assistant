@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import {
-  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard, ActionSheetItem,
+  View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol, Button, ModalRoot, ModalCard,
 } from '@vkontakte/vkui';
 import {
-  Icon28ShareOutline, Icon28ListPlayOutline, Icon28EditOutline, Icon16Add, Icon56NotebookCheckOutline,
+  Icon16Add, Icon56NotebookCheckOutline,
 } from '@vkontakte/icons';
 import '@vkontakte/vkui/dist/vkui.css';
 import Error from './panels/Error';
@@ -12,12 +12,13 @@ import { GlobalContext, GetRoutes } from './context';
 import Slider from './panels/Slider';
 import Start from './panels/Start';
 import SpeakerView from './panels/SpeakerView';
-import { MODAL_INTERACTIVE, MODAL_UPLOAD } from './components/modals';
+import { MODAL_UPLOAD } from './components/modals';
 
 function App() {
   const { path, appearance, Appearance } = useContext(GlobalContext);
   const [fetchedUser, User] = useState(null);
   const [activeModal, setActiveModal] = useState(null);
+  const [popout, setPopout] = useState(null);
 
   const VKBridgeSubscribeHandler = ({ detail: { type, data } }) => {
     if (type === 'VKWebAppUpdateConfig') {
@@ -55,25 +56,6 @@ function App() {
           </Button>
         )}
       />
-      <ModalCard
-        id={MODAL_INTERACTIVE}
-        onClose={() => setActiveModal(null)}
-        actions={(
-          <div className="Menu_interactive">
-            <ActionSheetItem autoClose before={<Icon28EditOutline />}>
-              Голосование
-            </ActionSheetItem>
-            <ActionSheetItem autoClose before={<Icon28ListPlayOutline />}>
-              Квиз
-            </ActionSheetItem>
-            <ActionSheetItem autoClose before={<Icon28ShareOutline />}>
-              Облако тегов
-            </ActionSheetItem>
-
-          </div>
-        )}
-      />
-
     </ModalRoot>
   );
 
@@ -81,13 +63,14 @@ function App() {
     <ConfigProvider appearance={appearance}>
       <AdaptivityProvider>
         <AppRoot>
-          <SplitLayout modal={modal}>
+          <SplitLayout modal={modal} popout={popout}>
             <SplitCol>
               <GetRoutes index="start" fallback="404">
                 <View id="start" activePanel={path}>
                   <Start id="start" fetchedUser={fetchedUser} />
                   <SpeakerView id="speaker" setActiveModal={setActiveModal} />
-                  <Slider id="slider" setActiveModal={setActiveModal} />
+                  <Slider id="slider" setPopout={setPopout} />
+                  <Slider id="slider" setPopout={setPopout} />
                   <Error id="404" />
                 </View>
               </GetRoutes>

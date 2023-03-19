@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import {
-  Panel, PanelHeader, PanelHeaderBack, Text, Div, Button, Banner, Image,
+  Panel, PanelHeaderBack, Div, Button, Banner, Image,
 } from '@vkontakte/vkui';
 import { Icon28ArrowDownToSquareOutline } from '@vkontakte/icons';
 import './SpeakerView.css';
 import { MODAL_UPLOAD } from '../components/modals';
 import { GlobalContext } from '../context';
+import { CustomHeader } from '../components/styled';
+import { applicationName } from '../consts';
 
 function SpeakerView({ id, setActiveModal }) {
   const { go } = useContext(GlobalContext);
@@ -39,13 +41,11 @@ function SpeakerView({ id, setActiveModal }) {
 
   return (
     <Panel id={id}>
-      <PanelHeader
+      <CustomHeader
         before={<PanelHeaderBack onClick={() => go('start')} />}
       >
-        <Text className="Logo_name">
-          Живая Презентация
-        </Text>
-      </PanelHeader>
+        {applicationName}
+      </CustomHeader>
       <Div className="Presentation_menu">
         <Button size="l" appearance="accent" mode="tertiary" before={<Icon28ArrowDownToSquareOutline />} onClick={() => setActiveModal(MODAL_UPLOAD)}>
           <span className="Button_text">Загрузить презентацию</span>

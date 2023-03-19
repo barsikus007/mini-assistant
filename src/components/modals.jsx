@@ -1,2 +1,2 @@
 export const MODAL_UPLOAD = 'upload';
-export const MODAL_INTERACTIVE = 'interactive';
+export const MODAL_UPLOAD2 = 'upload';

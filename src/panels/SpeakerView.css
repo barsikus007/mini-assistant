@@ -1,26 +1,9 @@
-.Logo_name {
-  font-size: 22px;
-}
-
-.Present_block {
-  background-color: white;
-  width: 600px;
-  height: 150px;
-  margin: 200px auto;
-}
-
 .Presentation_menu {
   align-items: center;
   margin: 0 auto;
   text-align: center;
   height: 15px;
   gap: 12px;
-}
-
-.Presentation_text {
-  padding-top: 15px;
-  font-size: 14px;
-  font-weight: 700;
 }
 
 .Button_text {
@@ -36,10 +19,4 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-.Menu_interactive {
-  display: flex;
-  flex-direction: column;
-  min-width: 100%;
 }

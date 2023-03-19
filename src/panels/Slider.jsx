@@ -1,25 +1,46 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import {
-  Panel, PanelHeader, PanelHeaderBack, Text, Button, Banner,
+  Panel, PanelHeaderBack, Button, Banner, ActionSheetItem, ActionSheet, ActionSheetDefaultIosCloseItem,
 } from '@vkontakte/vkui';
-import { Icon24Add } from '@vkontakte/icons';
+import {
+  Icon24Add, Icon28EditOutline, Icon28ListPlayOutline, Icon28ShareOutline,
+} from '@vkontakte/icons';
 import './SpeakerView.css';
 // import { Title, ZButton, MoreButton } from '../components/styled'
 import { GlobalContext } from '../context';
-import { MODAL_INTERACTIVE } from '../components/modals';
+import { CustomHeader } from '../components/styled';
+import { applicationName } from '../consts';
 
-function Slider({ id, setActiveModal }) {
+function Slider({ id, setPopout }) {
   const { go } = useContext(GlobalContext);
+
+  const iconsTargetRef = React.useRef();
+  const onClose = () => setPopout(null);
+  const openIcons = () => setPopout(
+    <ActionSheet
+      onClose={onClose}
+      iosCloseItem={<ActionSheetDefaultIosCloseItem />}
+      toggleRef={iconsTargetRef}
+    >
+      <ActionSheetItem autoClose before={<Icon28EditOutline />}>
+        Голосование
+      </ActionSheetItem>
+      <ActionSheetItem autoClose before={<Icon28ListPlayOutline />}>
+        Квиз
+      </ActionSheetItem>
+      <ActionSheetItem autoClose before={<Icon28ShareOutline />}>
+        Облако тегов
+      </ActionSheetItem>
+    </ActionSheet>,
+  );
 
   return (
     <Panel id={id}>
-      <PanelHeader
+      <CustomHeader
         before={<PanelHeaderBack onClick={() => go('speaker')} />}
       >
-        <Text className="Logo_name">
-          Живая Презентация
-        </Text>
-      </PanelHeader>
+        {applicationName}
+      </CustomHeader>
       <Banner
         mode="image"
         size="l"
@@ -62,7 +83,7 @@ function Slider({ id, setActiveModal }) {
       />
 
       <div className="New_slide">
-        <Button size="l" appearance="accent" mode="tertiary" before={<Icon24Add />} onClick={() => setActiveModal(MODAL_INTERACTIVE)}>
+        <Button size="l" appearance="accent" mode="tertiary" before={<Icon24Add />} onClick={openIcons}>
           <span className="Button_text">Добавить интерактив</span>
         </Button>
       </div>
